@@ -69,9 +69,9 @@ nasa-dashboard-challenge/
 
 ## 📸 Capturas de Pantalla
 
-| Vista inicial | Filtros aplicados |
+| Vista inicial | Resumen de datos |
 |---|---|
-| ![Initial View](./public/screenshots/initial-load.png) | ![Filtered Data](./public/screenshots/date-filter.png) |
+| ![Initial View](./public/screenshots/initial-load.png) | ![Filtered Data](./public/screenshots/stats-summary.png) |
 
 | Gráfico de diámetros | Scatter velocidad |
 |---|---|
