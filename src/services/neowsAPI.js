@@ -1,6 +1,6 @@
 // src/services/neowsAPI.js
 
-const API_KEY = 'vxc2NNHyY6Oo5xUATBOSnGkdacEmM5UYq6obgf2C'; // Move to .env later
+const API_KEY = import.meta.env.VITE_NASA_API_KEY;
 const BASE_URL = 'https://api.nasa.gov/neo/rest/v1';
 
 export const fetchNeoFeed = async (startDate, endDate) => {
