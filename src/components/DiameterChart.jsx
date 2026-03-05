@@ -13,7 +13,7 @@ export const DiameterChart = ({ data }) => {
     .slice(0, 20); // Show top 20, not all 200+
 
   return (
-    <div style={{ width: '100%', height: 300 }}>
+    <div aria-label='Chart showing asteroid diameters' style={{ width: '100%', height: 300 }}>
       <h3>Asteroid Diameters (km)</h3>
       <ResponsiveContainer>
         <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 100 }}>

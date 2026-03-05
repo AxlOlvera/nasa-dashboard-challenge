@@ -15,7 +15,7 @@ export const VelocityScatter = ({ data }) => {
     .filter(d => d.x > 0 && d.y > 0);
 
   return (
-    <div style={{ width: '100%', height: 300, marginTop: '20px' }}>
+    <div aria-label='Chart showing Miss Distance vs Velocity' style={{ width: '100%', height: 300, marginTop: '20px' }}>
       <h3>Miss Distance vs Velocity</h3>
       <ResponsiveContainer>
         <ScatterChart margin={{ top: 20, right: 20, bottom: 60, left: 80 }}>
