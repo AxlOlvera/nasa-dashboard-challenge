@@ -4,7 +4,7 @@ import { DiameterChart } from './DiameterChart';
 import { VelocityScatter } from './VelocityScatter';
 import { ChartContainer } from './ChartContainer';
 import { SummaryStats } from './SummaryStats';
-import { DashboardTour } from './DashboardTour';
+import { DashboardTour } from './Dashboardtour';
 import { CosmicBackground } from './CosmicBackground';
 
 const LoadingScreen = () => (
