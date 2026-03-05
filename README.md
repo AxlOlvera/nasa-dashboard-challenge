@@ -52,15 +52,13 @@ nasa-dashboard-challenge/
         ├── SummaryStats.jsx                  ← tarjetas de estadísticas derivadas
         └── ErrorBoundary.jsx                 ← captura de errores de renderizado
     hooks/
-    └── useNeoWsData.js                       ← sin cambios
+    └── useNeoWsData.js                       
     services/
-    └── neowsAPI.js                           ← sin cambios
+    └── neowsAPI.js                           
 ```
 
-> `App.css` puede eliminarse — fue completamente reemplazado por `index.css`.
 
 **Decisiones arquitectónicas clave:**
-- `App.jsx` es intencionalmente delgado — solo maneja estado de fecha y delega todo a `Dashboard`
 - Los datos se aplanan una sola vez en `Dashboard` con `useMemo` y se comparten hacia abajo, evitando `Object.values().flat()` repetido en cada hijo
 - Los transformadores de datos de cada gráfico viven en hooks internos (`useChartData`, `useScatterData`) — la UI y la lógica están separadas
 - `DashboardTour` carga Driver.js de forma diferida desde CDN únicamente cuando el usuario activa el tour
@@ -109,10 +107,10 @@ Pruebas unitarias implementadas con **Vitest** (nativo para Vite):
 npm run test
 ```
 
-**¿Por qué Vitest en lugar de Jest?**
-- Comparte la misma configuración de transformación que Vite → sin inconsistencias entre entornos
-- HMR interno → ejecución instantánea tras cada cambio
-- Soporte nativo de ESM y JSX sin configuración extra de Babel
+    **¿Por qué Vitest en lugar de Jest?**
+    - Comparte la misma configuración de transformación que Vite → sin inconsistencias entre entornos
+    - HMR interno → ejecución instantánea tras cada cambio
+    - Soporte nativo de ESM y JSX 
 
 **Alcance actual:**
 - Validación del servicio NASA API (formatos de fecha, manejo de errores HTTP)
