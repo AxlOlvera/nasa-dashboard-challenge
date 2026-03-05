@@ -1,35 +1,40 @@
 import { useState } from 'react'
+import { useNeoWsData } from './hooks/useNeoWsData';
+import { DiameterChart } from './components/DiameterChart';
+import { VelocityScatter } from './components/VelocityScatter';
+import { DateFilter } from './components/DateFilter';
+
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [dateRange, setDateRange] = useState({ start: '2024-03-01', end: '2024-03-07' });
+  const { data, loading, error } = useNeoWsData(dateRange.start, dateRange.end);
+
+  const handleFilterChange = (start, end) => {
+    setDateRange({ start, end });
+  };
+
+  if (loading) return <p>Loading asteroid data...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="dashboard-container">
+      <h1>NEO Dashboard</h1>
+      <p>Near-Earth Object tracking via NASA API</p>
+      
+      <DateFilter onFilterChange={handleFilterChange} />
+      
+      <div className="chart-container">
+        <DiameterChart data={data} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      
+      <div className="chart-container" style={{ marginTop: '20px' }}>
+        <VelocityScatter data={data} />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
 export default App
